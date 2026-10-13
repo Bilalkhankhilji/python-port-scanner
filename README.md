@@ -1,18 +1,34 @@
-# Network Port Scanner & Vulnerability Detector
+# 🔍 Python Multi-Threaded Port Scanner & Banner Grabber
 
-## Overview
-A lightweight Python-based network reconnaissance tool designed to scan target IP addresses or domain names for open ports, perform service banner grabbing, and flag potential misconfigurations.
+A lightweight, high-performance TCP port scanner and banner grabbing utility built in Python. Designed for rapid network reconnaissance, service identification, and security auditing.
 
-## Key Features
-* **Multi-Port Scanning:** Scans standard well-known service ports (1–1024) or custom user-defined ranges.
-* **Banner Grabbing:** Attempts to retrieve service identification strings to identify running versions (e.g., SSH, HTTP, FTP).
-* **Error Handling:** Built-in safeguards against invalid IPs, host resolution failures, and user interrupts (`Ctrl+C`).
+**Author:** Muhammad Bilal — Assistant Network Administrator  
+**Language:** Python 3  
 
 ---
 
-## Installation & Setup
+## 🚀 Key Features
+- **Multi-Threaded Performance:** Utilizes `ThreadPoolExecutor` to scan large port ranges concurrently in seconds.
+- **Service & Banner Grabbing:** Automatically detects open ports and attempts to retrieve banner strings (e.g., HTTP, SSH, FTP versions).
+- **Flexible Targets & Ranges:** Supports custom IP addresses, hostnames, and specific port ranges or comma-separated lists.
+- **Clean CLI Interface:** Powered by Python's built-in `argparse` module for clean command-line operation.
 
-1. **Clone the repository:**
-   ```bash
-   git clone [https://github.com/bilalkhantaraqai/python-port-scanner.git](https://github.com/bilalkhantaraqai/python-port-scanner.git)
-   cd python-port-scanner
+---
+
+## 🛠️ Usage & Syntax
+
+Run the script from your terminal with `--target`:
+
+### 1. Basic Scan (Default ports 1-1024)
+```bash
+python3 scanner.py --target 127.0.0.1
+
+python3 scanner.py --target scanme.nmap.org --ports 1-100 --threads 100
+
+python3 scanner.py --target 192.168.1.1 --ports 21,22,80,443,8080
+
+📋 Command-Line Arguments
+Argument          Description                                           Default
+--target          Target IP address or domain name to scan              Required
+--ports           Port range (1-1024) or specific ports (22,80,443)     1-1024
+--threads         Number of concurrent execution threads                50
